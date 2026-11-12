@@ -44,6 +44,7 @@ Open-source **Dual-Rail Model Context Protocol (MCP)** server and `n8n` workflow
 | Clean URL-to-Markdown for RAG | `GET /v1/x402/clean-markdown?url=...` | `$0.002` | [`ultra-liquid/ai-agent-clean-markdown-rag`](https://apify.com/ultra-liquid/ai-agent-clean-markdown-rag) |
 | B2B Domain Buying-Signal Enricher | `GET /v1/x402/b2b-enrich?domain=...` | `$0.015` | [`ultra-liquid/b2b-lead-signal-enricher`](https://apify.com/ultra-liquid/b2b-lead-signal-enricher) |
 | Shopify Competitor Price & Ad Angles | `GET /v1/x402/shopify-competitor?domain=...` | `$0.010` | [`ultra-liquid/shopify-competitor-ad-pain-analyzer`](https://apify.com/ultra-liquid/shopify-competitor-ad-pain-analyzer) |
+| Keyless Frontier LLM Inference | `GET/POST /v1/x402/llm?prompt=...` | `$0.002` | — |
 | Keyless OpenAI Chat Completions | `POST /v1/x402/chat/completions` | `$0.002` | — |
 | Base Smart-Contract & Relayer Audit | `GET /v1/x402/contract-audit?address=0x...` | `$0.005` | — |
 | Honeypot-Filtered Agent Bounties Feed | `GET /v1/x402/bounties?category=all` | `$0.005` | [`ultra-liquid/reddit-buyer-intent-lead-radar`](https://apify.com/ultra-liquid/reddit-buyer-intent-lead-radar) |
@@ -67,9 +68,21 @@ Open-source **Dual-Rail Model Context Protocol (MCP)** server and `n8n` workflow
 }
 ```
 
+## CrewAI / LangChain / Python Usage
+
+```python
+from orivale_mcp.crewai_tools import OrivaleCrewAITools
+
+print(OrivaleCrewAITools.clean_markdown("https://example.com"))
+print(OrivaleCrewAITools.b2b_domain_enrich("stripe.com"))
+```
+
 ## Ready-to-Import `n8n` Workflows
 
 Import any JSON template from [`n8n_workflows/`](n8n_workflows/) directly into `n8n` (`Workflows -> Import from File`) and set `APIFY_API_TOKEN`.
+
+- **OpenAPI 3.1 Spec**: `https://ori.mantissa.id/openapi.json`
+- **`llms.txt` Agent Card**: `https://ori.mantissa.id/llms.txt`
 
 ## License
 
