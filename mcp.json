@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "orivale-http": {
+      "type": "streamable-http",
+      "url": "https://ori.mantissa.id/mcp"
+    },
+    "orivale-stdio": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/tapirro/orivale-agent-mcp", "orivale-mcp"]
+    }
+  }
+}

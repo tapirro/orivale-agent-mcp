@@ -1,0 +1,38 @@
+{
+  "name": "Orivale Shopify Competitor Price & Ad-Angle Radar (Apify PPE / MCP)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": { "interval": [{ "field": "hours", "hoursInterval": 12 }] }
+      },
+      "id": "cron-12h",
+      "name": "Every 12 Hours",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [220, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/ultra-liquid~shopify-competitor-ad-pain-analyzer/run-sync-get-dataset-items",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [{ "name": "token", "value": "={{ $env.APIFY_API_TOKEN }}" }]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"storeUrls\": [\"https://allbirds.com\", \"https://gymshark.com\"]\n}"
+      },
+      "id": "apify-shopify-radar",
+      "name": "Run ultra-liquid/shopify-competitor-ad-pain-analyzer",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 300]
+    }
+  ],
+  "connections": {
+    "Every 12 Hours": {
+      "main": [[{ "node": "Run ultra-liquid/shopify-competitor-ad-pain-analyzer", "type": "main", "index": 0 }]]
+    }
+  }
+}

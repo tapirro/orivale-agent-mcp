@@ -1,0 +1,38 @@
+{
+  "name": "Orivale Daily B2B Domain Buying-Signal Enricher (Apify PPE + Slack)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": { "interval": [{ "field": "hours", "hoursInterval": 24 }] }
+      },
+      "id": "cron-trigger",
+      "name": "Every 24 Hours",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [220, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/ultra-liquid~b2b-lead-signal-enricher/run-sync-get-dataset-items",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [{ "name": "token", "value": "={{ $env.APIFY_API_TOKEN }}" }]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"domains\": [\"stripe.com\", \"apify.com\", \"linear.app\"],\n  \"includeIcebreakers\": true\n}"
+      },
+      "id": "apify-b2b-enricher",
+      "name": "Run ultra-liquid/b2b-lead-signal-enricher",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 300]
+    }
+  ],
+  "connections": {
+    "Every 24 Hours": {
+      "main": [[{ "node": "Run ultra-liquid/b2b-lead-signal-enricher", "type": "main", "index": 0 }]]
+    }
+  }
+}
