@@ -43,6 +43,8 @@ Open-source **Dual-Rail Model Context Protocol (MCP)** server and `n8n` workflow
 |---|---|---:|---|
 | Clean URL-to-Markdown for RAG | `GET /v1/x402/clean-markdown?url=...` | `$0.002` | [`ultra-liquid/ai-agent-clean-markdown-rag`](https://apify.com/ultra-liquid/ai-agent-clean-markdown-rag) |
 | B2B Domain Buying-Signal Enricher | `GET /v1/x402/b2b-enrich?domain=...` | `$0.015` | [`ultra-liquid/b2b-lead-signal-enricher`](https://apify.com/ultra-liquid/b2b-lead-signal-enricher) |
+| B2B Tech-Stack & Pixel Fingerprinter | `GET /v1/x402/tech-stack-signal?domain=...` | `$0.010` | [`ultra-liquid/b2b-lead-signal-enricher`](https://apify.com/ultra-liquid/b2b-lead-signal-enricher) |
+| YouTube Chapters, Transcript & Hooks | `GET /v1/x402/youtube-transcript-hooks?url=...` | `$0.005` | [`ultra-liquid/viral-video-hook-cloner`](https://apify.com/ultra-liquid/viral-video-hook-cloner) |
 | Shopify Competitor Price & Ad Angles | `GET /v1/x402/shopify-competitor?domain=...` | `$0.010` | [`ultra-liquid/shopify-competitor-ad-pain-analyzer`](https://apify.com/ultra-liquid/shopify-competitor-ad-pain-analyzer) |
 | Keyless Frontier LLM Inference | `GET/POST /v1/x402/llm?prompt=...` | `$0.002` | — |
 | Keyless OpenAI Chat Completions | `POST /v1/x402/chat/completions` | `$0.002` | — |
